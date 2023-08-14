@@ -190,7 +190,7 @@ if (isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['email']
 
         }catch(Throwable $err){
             // $_SESSION['error'] =  $err->getMessage()."\n";
-            $_SESSION['error'] =  "Something went wrong with twilio account, please check again";
+            $_SESSION['error'] =  "Something went wrong with twilio account or your phone number wrong. Please check again!";
             header("location: step3.php?id=$id_com");exit;
         }
 
