@@ -46,40 +46,40 @@ const validPhone = document.getElementById('valid-phone');
 //     })
 // }
 
-// if(validPhone){
-//     validPhone.addEventListener('keyup', function(event){
-//         limitText(this, 14);
-//         var regex = /^[0-9]$/;
-//         if(regex.test(event.key)){
-//             if(validPhone.value.length == 1){
-//                 validPhone.value = "(" + validPhone.value;
-//             }
-//             if(validPhone.value.length == 4){
-//                 validPhone.value = validPhone.value + ') ';
-//             }
-//             if(validPhone.value.length == 9){
-//                 validPhone.value = validPhone.value + '-';
-//             }
-//             // var regName = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
-//             var regName = /^[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}$/;
+if(validPhone){
+    validPhone.addEventListener('keyup', function(event){
+        limitText(this, 14);
+        var regex = /^[0-9]$/;
+        if(regex.test(event.key)){
+            if(validPhone.value.length == 1){
+                validPhone.value = "(" + validPhone.value;
+            }
+            if(validPhone.value.length == 4){
+                validPhone.value = validPhone.value + ') ';
+            }
+            if(validPhone.value.length == 9){
+                validPhone.value = validPhone.value + '-';
+            }
+            // var regName = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+            var regName = /^[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}$/;
             
-//             // var regPhoneVN = /^[0-9]{9,12}$/;
-//             if(regName.test(validPhone.value)){//regName
-//                 validPhone.setCustomValidity("");
-//                 validPhone.focus = false;
-//             }else{
-//                 // validPhone.setCustomValidity("Phone number required enter is format +84xxxxxxxxx.");
-//                 validPhone.setCustomValidity("Phone number required enter is format (XXX) XXX-XXXX. e.g: (123) 123-1234");
-//                 validPhone.focus = true;
-//                 return false;
-//             }
-//         }else{
-//             var result = validPhone.value.substring(0, validPhone.value.length - 1);
-//             validPhone.value = result;
-//         }
+            // var regPhoneVN = /^[0-9]{9,12}$/;
+            if(regName.test(validPhone.value)){//regName
+                validPhone.setCustomValidity("");
+                validPhone.focus = false;
+            }else{
+                // validPhone.setCustomValidity("Phone number required enter is format +84xxxxxxxxx.");
+                validPhone.setCustomValidity("Phone number required enter is format (XXX) XXX-XXXX. e.g: (123) 123-1234");
+                validPhone.focus = true;
+                return false;
+            }
+        }else{
+            var result = validPhone.value.substring(0, validPhone.value.length - 1);
+            validPhone.value = result;
+        }
 
-//     })
-// }
+    })
+}
 if(validName){
     validName.addEventListener('keyup', function(){
         var regex  = /^[a-zA-Z0-9\s_]*$/;
@@ -93,35 +93,35 @@ if(validName){
         }
     })
 }
-// function validate(){
-//     if(validPhone && validName){
-//         var regName = /^[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}$/;
-//         // var regName = /^\+[8][4][0-9]{9,11}$/;
-//         var regex  = /^[a-zA-Z0-9\s_]*$/;
-//         // var regPhoneVN = /^[0-9]{9,12}$/;
-//         if(regName.test(validPhone.value)){
-//             validPhone.setCustomValidity("");
-//             validPhone.focus = false;
-//         }else{
-//             // validPhone.setCustomValidity("Phone number required enter is format  +84xxxxxxxxx.");
-//             validPhone.setCustomValidity("Phone number required enter is format (XXX) XXX-XXXX. e.g: (123) 123-1234");
-//             validPhone.focus = true;
-//             return false;
-//         }
+function validate(){
+    if(validPhone && validName){
+        var regName = /^[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}$/;
+        // var regName = /^\+[8][4][0-9]{9,11}$/;
+        var regex  = /^[a-zA-Z0-9\s_]*$/;
+        // var regPhoneVN = /^[0-9]{9,12}$/;
+        if(regName.test(validPhone.value)){
+            validPhone.setCustomValidity("");
+            validPhone.focus = false;
+        }else{
+            // validPhone.setCustomValidity("Phone number required enter is format  +84xxxxxxxxx.");
+            validPhone.setCustomValidity("Phone number required enter is format (XXX) XXX-XXXX. e.g: (123) 123-1234");
+            validPhone.focus = true;
+            return false;
+        }
 
-//         if(!regex .test(validName.value)){
-//             validName.setCustomValidity("Name cannot contain special characters!");
-//             validName.focus = true;
-//             return false;
-//         }else{
-//             validName.setCustomValidity("");
-//             validName.focus = false;
-//         }
+        if(!regex .test(validName.value)){
+            validName.setCustomValidity("Name cannot contain special characters!");
+            validName.focus = true;
+            return false;
+        }else{
+            validName.setCustomValidity("");
+            validName.focus = false;
+        }
 
-//     }
+    }
 
-//     return true;
-// }
+    return true;
+}
 function limitText(field, maxChar){
     var ref = $(field),
     val = ref.val();
