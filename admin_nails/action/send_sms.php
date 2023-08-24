@@ -20,6 +20,7 @@ if(isset($_GET['id'])){
 
     $username = $getBookingById[0]['fullname'];
     $company = $getBookingById[0]['company_name'];
+    $companyHotLine = $getBookingById[0]['hotline'];
     $phoneUser = $getBookingById[0]['phone'];
     $dateBegin = $getBookingById[0]['date_duration'];
 
@@ -32,28 +33,32 @@ if(isset($_GET['id'])){
 
     $timeBegin = $hour_start . ':' . $minute_start . '' . $period_start;
     
-    $twilio = new Client('AC0888e04255208c65df4b5dd5fd1cabf7', '56a5f493c8d54317eed3666a2380bcb9');
     try{
-        $messFirst = $twilio->messages
-        ->create(
-            "$phoneUser", // to 84969747473
-            [
-                "body" => "Hi $username, don't forget your appt at $company on $dateBegin at $timeBegin. To Reschedule or Cancel, please call (217)996-8787. DO NOT REPLY TO TEXT",
-                "from" => "+12179968787", //12542685884
-            ]
-        );
+        $twilio = new Client('AC0888e04255208c65df4b5dd5fd1cabf7', '8032bcab81592de36eb03a83dc3f83d1');
 
-        if($messFirst){
+        try{
+            $messFirst = $twilio->messages
+            ->create(
+                "$phoneUser", // to 84969747473
+                [
+                    "body" => "Hi $username, don't forget your appt at $company on $dateBegin at $timeBegin. To Reschedule or Cancel, please call $companyHotLine. DO NOT REPLY TO TEXT",
+                    "from" => "+12179968787", //12542685884
+                ]
+            );
+
             $_SESSION['success'] = "Send SMS message successful!";
             header("location: ../list_booking.php");exit;
-        }else{
-            header("location: ../404.php");
+
+        }catch(Throwable $err){
+            $_SESSION['error'] = "Phone number is wrong. Please check twlio account and try it!";
+            header("location: ../list_booking.php");exit;
         }
 
     }catch(TwilioException $err){
-        $_SESSION['error'] = "Error sending SMS: ".$err->getCode() . ' : ' . $err->getMessage()."\n";
-        header("location: ../404.php");
+        $_SESSION['error'] = "Something went wrong with twilio account. Please check twlio account and try it!";
+        header("location: ../list_booking.php");exit;
     }
 }else{
-    header("location: ../404.php");
+    $_SESSION['error'] = "Error! An error occurred. Please try again later";
+    header("location: ../list_booking.php");
 }

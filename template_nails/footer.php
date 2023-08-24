@@ -11,10 +11,18 @@
     <script src="js/main.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="./js/jquery.timepicker.min.js"></script>
+    <script src="./js/jquery.inputmask.bundle.min.js"></script>
     <script src="./js/mdb.min.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/ajax.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+        function init_InputMask() {
+        void 0 !== $.fn.inputmask &&
+            (console.log("init_InputMask"), $(":input").inputmask());
+        }
+        init_InputMask();
+    </script>
 </body>
 
 </html>

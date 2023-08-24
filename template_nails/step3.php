@@ -47,7 +47,8 @@ if(!isset($_SESSION['cart'])){
                                 <div class="form-group">
                                     <div class="icon-info"><i class='bx bx-phone' ></i></div>
                                     <!-- <input id="valid-phone" type="text" name="phone" class="form-control" placeholder="Phone number +84xxxxxxxxx (*)" required> -->
-                                    <input id="valid-phone" type="text" name="phone" class="form-control" placeholder="Phone number (___) ___-____ (*)" required>
+                                    <input id="valid-phone" type="text" name="phone" class="form-control" placeholder="Phone number (___) ___-____ (*)" data-inputmask="'mask' : '(999) 999-9999'" required>
+                                    <!-- <input type="text" class="form-control" data-inputmask="'mask' : '(999) 999-9999'"> -->
                                 </div>
                                 
                                 <div class="form-group">

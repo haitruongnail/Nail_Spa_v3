@@ -125,6 +125,7 @@ if(isset($_SESSION['error-phone'])){
 
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <!--Choose service and staff end-->
