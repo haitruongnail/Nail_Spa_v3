@@ -13,9 +13,9 @@ class Company extends Database{
     /**
      * 
      */
-    function insert($rand_id, $name, $img, $hotline, $address,$time_start,$time_end, $status, $password, $day_start, $day_end){
-        $sql = parent::$connection->prepare("INSERT INTO `company`(`rand_id`, `company_name`, `img_company`, `hotline`, `address`, `time_start`, `time_end`, `status`, `password`, `day_start`, `day_end`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $sql->bind_param('issssssisss', $rand_id, $name, $img, $hotline, $address, $time_start,$time_end, $status, $password, $day_start, $day_end);
+    function insert($rand_id, $name, $img, $hotline, $phoneBooking, $address,$time_start,$time_end,$timePeriod, $status, $password, $day_start, $day_end){
+        $sql = parent::$connection->prepare("INSERT INTO `company`(`rand_id`, `company_name`, `img_company`, `hotline`, `phone_booking`, `address`, `time_start`, `time_end`, `time_period`, `status`, `password`, `day_start`, `day_end`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $sql->bind_param('issssssssisss', $rand_id, $name, $img, $hotline, $address, $phoneBooking, $time_start,$time_end,$timePeriod, $status, $password, $day_start, $day_end);
         return $sql->execute();
     }
     /**
@@ -37,9 +37,9 @@ class Company extends Database{
     /**
      * 
      */
-    function update($id,$name, $img, $hotline, $address,$time_start,$time_end, $status, $password, $day_start, $day_end){
-        $sql = parent::$connection->prepare("UPDATE `company` SET `company_name`= ? ,`img_company`= ? ,`hotline`= ? ,`address`= ? , `time_start` = ?, `time_end` = ?,`status`= ?, `password` = ?, `day_start` = ?, `day_end` = ? WHERE `id` = ?");
-        $sql->bind_param('ssssssisssi', $name, $img, $hotline, $address,$time_start,$time_end, $status, $password, $day_start, $day_end, $id);
+    function update($id,$name, $img, $hotline, $phone, $address,$time_start,$time_end,$timePeriod, $status, $password, $day_start, $day_end){
+        $sql = parent::$connection->prepare("UPDATE `company` SET `company_name`= ? ,`img_company`= ? ,`hotline`= ?, `phone_booking` = ? ,`address`= ? , `time_start` = ?, `time_end` = ?, `time_period` = ?,`status`= ?, `password` = ?, `day_start` = ?, `day_end` = ? WHERE `id` = ?");
+        $sql->bind_param('ssssssssisssi', $name, $img, $hotline,$phone, $address,$time_start,$time_end,$timePeriod, $status, $password, $day_start, $day_end, $id);
         return $sql->execute();
     }
     /**

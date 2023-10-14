@@ -131,16 +131,27 @@ $urlCom = "$path://$server/booking_nail/template_nails/index.php?id=";
                     <input type="file" name="image" class="form-control" required>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-12">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="form-group">
                             <label for="mo_ta"><b>Start working hours:</b></label>
                             <input type="text" name="time_start" id="time_start" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-12">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="form-group">
                             <label for="address"><b>End of work:</b></label>
                             <input type="text" name="time_end" id="time_end" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="address"><b>Divide the time period:</b></label>
+                            <select name="time_period" class="form-control">
+                                <option value="00:10:00">10 minutes</option>
+                                <option value="00:20:00">20 minutes</option>
+                                <option value="00:30:00">30 minutes</option>
+                                <option value="01:00:00">1 hour</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -162,14 +173,23 @@ $urlCom = "$path://$server/booking_nail/template_nails/index.php?id=";
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class="form-group">
-                            <label for="address"><b>Address:</b></label>
-                            <input type="text" class="form-control" name="address" placeholder="Enter hotline..." required>
+                        <label for="mo_ta"><b>Phone booking:</b></label>
+                            <input type="tel" class="form-control phone_company" name="phone_booking" placeholder="Enter phone..." required>
                         </div>
                     </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="address"><b>Address:</b></label>
+                            <input type="text" class="form-control" name="address" placeholder="Enter " required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-3 col-md-6 col-12">
                         <label for="day_start"><b>Work from:</b></label>
                         <select class="form-control" name="day_start">
@@ -194,8 +214,6 @@ $urlCom = "$path://$server/booking_nail/template_nails/index.php?id=";
                             <option value="Saturday">Saturday</option>
                         </select>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="form-group">
                             <label for="mo_ta"><b>Status:</b></label>

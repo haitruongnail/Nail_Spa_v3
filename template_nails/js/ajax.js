@@ -179,14 +179,26 @@ function getServiceByType(type_id, company_id, index) {
             var time = item['time_completion'];
             hour = time.slice(0, 2);
             minute = time.slice(3, 5);
+
+            var strDetail = '';
+            var strDetailTime = `<i class='bx bx-time-five'></i> ${hour} hours ${minute} minutes <span class="space">.</span>`;
+            var strDetailPrice = `<span class="price">$${item['price']}</span>`;
+            if(hour == '00' && minute == '00'){
+                strDetailTime = '';
+            }
+
+            if(item['price'] == '0'){
+                strDetailPrice = '';
+            }
+
             divSelect.innerHTML += `
             <div class="row" onclick="checkedInput(event, ${item['ID_service']});">
                 <div class="col-12">
                     <div class="item-service ">
                         <div class="desc-left" onclick="thisInputShowStaff(event, ${item['ID_service']});">
                             <p>${item['name_service']}</p>
-                            <p><i class='bx bx-time-five'></i> ${hour} hours ${minute}
-                                minutes <span class="space">.</span> <span class="price">$${item['price']}</span></p>
+                            <p> ${strDetailTime}
+                                ${strDetailPrice}</p>
                         </div>
                         <div class="desc-right">
                             <input class"check_staff" type="radio" name="services" onclick="thisInputShowStaff(event, ${item['ID_service']});">

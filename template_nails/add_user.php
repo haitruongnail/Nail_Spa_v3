@@ -154,7 +154,7 @@ if (isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['email']
     
                 // $twilio = new Client('AC0888e04255208c65df4b5dd5fd1cabf7', '397ab1f5c5d7dd92bc111319ba70c4d2');
                 //Get phone of company
-                $phoneCom = $getCompanyById[0]['hotline'];
+                $phoneCom = $getCompanyById[0]['phone_booking'];
                 // //AC5917b53b6fe53799a1f4f06dd14d65fa 324e8886538d3046e211b039871ba69c
                 $listTime = implode(', ', $end_date);
 

@@ -102,7 +102,9 @@ if(isset($_SESSION['error'])){
                                 <?php if(isset($_SESSION['admin'])){ ?>
                                     <td><?= $item['company_name'] ?></td>
                                 <?php } ?>
-                                <td><?= $nameService ?></td>
+                                <td>
+                                    <span style="display: -webkit-box;overflow:hidden;-webkit-line-clamp:5;-webkit-box-orient: vertical;"><?= $nameService ?></span>
+                                </td>
                                 <td>
                                 <a href="./edit_staff.php?id=<?=$item['staff_id']?>" class="icon edit"><i class='bx bx-edit'></i></a>    
                                 <a onclick="if(CheckForm() == false) return false" href="./action/delete_staff.php?id=<?=$item['code']?>" class="icon delete"><i class='bx bxs-message-square-x'></i></a></td>

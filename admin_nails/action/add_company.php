@@ -65,12 +65,14 @@ if(isset($_POST['time_end'])){
 if(isset($_POST['company_name']) && isset($_POST['hotline']) && isset($_POST['address']) && isset($_POST['status']) && isset($_POST['password']) && isset($_POST['day_start']) && isset($_POST['day_end'])){
     $company_name = $_POST['company_name'];
     $hotline = $_POST['hotline'];
+    $phoneBooking = $_POST['phone_booking'];
     $address = $_POST['address'];
     $status = $_POST['status'];
     $password = $_POST['password'];
 
     $day_start = $_POST['day_start'];
     $day_end = $_POST['day_end'];
+    $time_period = $_POST['time_period'];
 
     $rand_id = rand(1111,9999);
 
@@ -81,7 +83,7 @@ if(isset($_POST['company_name']) && isset($_POST['hotline']) && isset($_POST['ad
     }
 
     try{
-        $insert = $company->insert($rand_id,$company_name,$image, $hotline, $address, $timestart, $timeend,$status,$password, $day_start, $day_end);
+        $insert = $company->insert($rand_id,$company_name,$image, $hotline, $phoneBooking, $address, $timestart, $timeend,$time_period,$status,$password, $day_start, $day_end);
         header('location: ../list_company.php');
     } catch(Throwable $err){
         $_SESSION['error'] = "This item cannot be add new! Please check the information and try again!";

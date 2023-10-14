@@ -37,16 +37,27 @@ $getCompanyById = $company->getCompanyById($id);
                                 <input type="text" value="<?=$getCompanyById[0]['img_company']?>" name="name_img_product" hidden>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-lg-4 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="mo_ta"><b>Start working hours:</b></label>
                                         <input type="text" name="time_start" id="time_start" class="form-control" value="<?=$getCompanyById[0]['time_start']?>" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-lg-4 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="address"><b>End of work:</b></label>
                                         <input type="text" name="time_end" id="time_end" class="form-control" value="<?=$getCompanyById[0]['time_end']?>" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="address"><b>Divide the time period:</b></label>
+                                        <select name="time_period" class="form-control">
+                                            <option class="divPeriod" value="00:10:00">10 minutes</option>
+                                            <option class="divPeriod" value="00:20:00">20 minutes</option>
+                                            <option class="divPeriod" value="00:30:00">30 minutes</option>
+                                            <option class="divPeriod" value="01:00:00">1 hour</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -70,12 +81,21 @@ $getCompanyById = $company->getCompanyById($id);
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-lg-6 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label for="mo_ta"><b>Phone booking:</b></label>
+                                        <input type="tel" class="form-control phone_company" value="<?=$getCompanyById[0]['phone_booking']?>" name="phone_booking" placeholder="Enter phone..." required>
+                                    </div>
+                                </div>
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="address"><b>Address:</b></label>
                                         <input type="text" class="form-control" name="address" value="<?=$getCompanyById[0]['address']?>" placeholder="Enter hotline..." required>
                                     </div>
                                 </div>
+
+                            </div>
+                            <div class="row">
                                 <div class="col-lg-3 col-md-6 col-12">
                                     <label for="day_start"><b>Work from:</b></label>
                                     <select class="form-control" name="day_start">
@@ -100,8 +120,6 @@ $getCompanyById = $company->getCompanyById($id);
                                         <option class="dayEnd" value="Saturday">Saturday</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="mo_ta"><b>Status:</b></label>
@@ -154,6 +172,12 @@ $getCompanyById = $company->getCompanyById($id);
     for (var i = 0; i < document.querySelectorAll('.dayEnd').length; i++) {
         if ( document.querySelectorAll('.dayEnd')[i].value == '<?=$getCompanyById[0]['day_end'];?>') {
             document.querySelectorAll('.dayEnd')[i].selected = true;
+            break;
+        }
+    }
+    for (var i = 0; i < document.querySelectorAll('.divPeriod').length; i++) {
+        if ( document.querySelectorAll('.divPeriod')[i].value == '<?=$getCompanyById[0]['time_period'];?>') {
+            document.querySelectorAll('.divPeriod')[i].selected = true;
             break;
         }
     }

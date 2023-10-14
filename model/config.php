@@ -1,5 +1,5 @@
 <?php
-define('DB_NAME','booking_nail');
+define('DB_NAME','nail_spa');
 define('DB_USER','root');
 define('DB_PASSWORD', '' );
 define('DB_HOST','localhost');

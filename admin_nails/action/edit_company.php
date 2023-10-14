@@ -69,7 +69,9 @@ if(isset($_POST['company_id']) && isset($_POST['company_name']) && isset($_POST[
     $company_id = $_POST['company_id'];
     $company_name = $_POST['company_name'];
     $hotline = $_POST['hotline'];
+    $phoneBooking = $_POST['phone_booking'];
     $address = $_POST['address'];
+    $time_period = $_POST['time_period'];
     $status = $_POST['status'];
     $password = $_POST['password'];
     $day_start = $_POST['day_start'];
@@ -77,7 +79,7 @@ if(isset($_POST['company_id']) && isset($_POST['company_name']) && isset($_POST[
     try{
         $company = new Company();
         // var_dump($image);die();
-        $update = $company->update($company_id ,$company_name,$image, $hotline, $address, $timestart, $timeend,$status,$password, $day_start, $day_end);
+        $update = $company->update($company_id ,$company_name,$image, $hotline, $phoneBooking, $address, $timestart, $timeend,$time_period,$status,$password, $day_start, $day_end);
         header('location: ../list_company.php');
     } catch(Throwable $err){
         $_SESSION['error'] = "This item cannot be editted! Please check the information and try again!";

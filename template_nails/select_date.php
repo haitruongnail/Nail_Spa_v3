@@ -39,7 +39,8 @@ if(isset($_GET['staff_id']) && $_GET['staff_id'] != 'undefined'){
     
         $time_start = $getStaffById[0]['time_start'];
         $time_end = $getStaffById[0]['time_end'];
-        $time_completion = $getStaffById[0]['time_completion'];
+        // $time_completion = $getStaffById[0]['time_completion'];//there
+        $time_completion = $getCompanyByRandId[0]['time_period'];//there
     
         $startTime = date($time_start);//khởi tạo
         $endTime = date($time_end);//khởi tạo
